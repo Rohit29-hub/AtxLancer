@@ -11,16 +11,16 @@ import { Button } from "../ui/button";
 function Header() {
   return (
     <div className=" flex items-center justify-between px-14 py-7 border-b-4">
-      <div className="text-4xl font-bold text-[#00bfa6]">LOGO</div>
+      <div className="text-3xl font-bold text-[]">AtxLancer</div>
       <div className=" px-[200px] py-3">
         <NavigationMenu>
           <NavigationMenuList className="flex justify-between gap-7">
-            <NavigationMenuItem className="text-xl font-semibold home">
+            <NavigationMenuItem className="text-lg font-semibold">
               <a href="#">Home</a>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-xl text-[#00bfa6]">
+              <NavigationMenuTrigger className="text-lg">
                 Demo one
               </NavigationMenuTrigger>
               <NavigationMenuContent className="flex flex-col texl-xl w-[10rem]">
@@ -37,7 +37,7 @@ function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-xl text-[#00bfa6]">
+              <NavigationMenuTrigger className="text-lg">
                 Demo Two
               </NavigationMenuTrigger>
               <NavigationMenuContent className="flex flex-col  gap-2 texl-xl w-[10rem]">
@@ -54,7 +54,7 @@ function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-xl text-[#00bfa6]">
+              <NavigationMenuTrigger className="text-lg">
                 Demo Thr
               </NavigationMenuTrigger>
               <NavigationMenuContent className="flex flex-col  gap-2 texl-xl w-[10rem]">
@@ -74,12 +74,10 @@ function Header() {
       </div>
 
       <div className="flex justify-between gap-5">
-        <Button className=" font-serif bg-[#00bfa6] text-2xl rounded-[5px] hover:bg-[#369c8f] ">
-          Login
+        <Button className=" " size={"lg"}>
+          Login / SignUp 
         </Button>
-        <Button className=" font-serif bg-[#00bfa6] text-2xl rounded-[5px] hover:bg-[#369c8f]">
-          SignUp
-        </Button>
+        
       </div>
     </div>
   );
