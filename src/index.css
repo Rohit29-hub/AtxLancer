@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -79,4 +78,36 @@
   body {
     @apply bg-background text-foreground;
   }
-} 
+}
+
+/* font set */
+@font-face {
+  font-family: "Circular";
+  src:url("./fonts/CircularXXWeb-Regular.woff2")  format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Circular";
+  src:url("./fonts/CircularXXWeb-Book.woff2") format("woff2");
+  font-weight: 600;
+}
+
+
+@font-face {
+  font-family: "SharpGrote";
+  src: url("./fonts/SharpGroteskBook20.woff2") format("woff2");
+  font-weight: 400; /* Regular */
+}
+
+@font-face {
+  font-family: "SharpGrote";
+  src: url("./fonts/SharpGroteskBook23.woff2") format("woff2");
+  font-weight: 500; /* Medium */
+}
+
+@font-face {
+  font-family: "SharpGrote";
+  src: url("./fonts/SharpGroteskMedium23.woff2") format("woff2");
+  font-weight: 600; /* Semi-Bold */
+}
