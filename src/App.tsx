@@ -1,13 +1,13 @@
 import './App.css'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
+import Footer from '@/components/layout/Footer'
 
 
 function App() {
   return (
     <>
-      <h1 className='text-3xl font-bold '># Welcome to <a target='_blank' href="http://atxlancer.com">Atxlancer.com</a></h1>
-      <p className="mt-2 ">This is our new freelancing website</p>
-      <Button className='mt-4'>Login</Button>
+    <Footer />
+
     </>
   )
 }
