@@ -4,9 +4,6 @@ import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 
-
-
-
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-200 py-8 px-4 border-t-4 mb-">
