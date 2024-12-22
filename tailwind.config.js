@@ -7,14 +7,19 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily:{
+			atxlancer_primary:["Circular","Arial","sans-serif"],
+			atxlancer_secondary:["SharpGrote","Arial","sans-serif"]
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',	
   		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			atxlancer_base_color:"#000",
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

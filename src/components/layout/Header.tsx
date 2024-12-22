@@ -16,7 +16,7 @@ function Header() {
         <NavigationMenu>
           <NavigationMenuList className="flex justify-between gap-7">
             <NavigationMenuItem className="text-lg font-semibold">
-              <a href="#">Home</a>
+              <a href="#" className=" font-atxlancer_primary" >Home</a>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
