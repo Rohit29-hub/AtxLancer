@@ -13,18 +13,18 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className=" flex items-center  px-14 py-5 border-b-4 sticky top-0 bg-white dark:bg-background">
-      <div className="text-3xl font-bold text-[]">
+    <div className=" flex items-center  px-14 py-2 shadow justify-center sticky top-0 bg-white dark:bg-background gap-10">
+      <div className="text-base font-bold text-[]">
         <span className="text-atxlancer_them_color">Atx</span>Lancer
       </div>
-      <div className="w-full flex items-center justify-between">
-        <div className=" px-[100px] py-3">
+      <div className="w-full flex items-center justify-between h-full ">
+        <div className=" px-[] py-3 ">
           <NavigationMenu>
             <NavigationMenuList className="flex justify-between gap-7">
               <NavigationMenuItem>
                 <Link
                   to="/services"
-                  className={`${navigationMenuTriggerStyle()} text-base`}>
+                  className={`${navigationMenuTriggerStyle()}`}>
                   <NavigationMenuLink asChild>
                     <span>Services</span>
                   </NavigationMenuLink>
@@ -32,7 +32,7 @@ function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-lg">
+                <NavigationMenuTrigger>
                   Portfolio
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex flex-col texl-xl w-[10rem] bg-atxlancer_white_color dark:bg-background ">
@@ -49,7 +49,7 @@ function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-lg">
+                <NavigationMenuTrigger>
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex flex-col  gap-2 texl-xl w-[10rem] bg-atxlancer_white_color dark:bg-background ">
@@ -66,7 +66,7 @@ function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-lg">
+                <NavigationMenuTrigger>
                   Blog
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex flex-col  gap-2 texl-xl w-[10rem] bg-atxlancer_white_color dark:bg-background">
@@ -85,7 +85,7 @@ function Header() {
               <NavigationMenuItem>
                 <Link
                   to="/contact"
-                  className={`${navigationMenuTriggerStyle()} text-base`}
+                  className={`${navigationMenuTriggerStyle()}`}
                 >
                   <NavigationMenuLink asChild>
                     <span>Contact</span>
@@ -97,10 +97,10 @@ function Header() {
         </div>
 
         <div className="flex justify-between gap-5 ">
-          <Button className="text-base" variant={"link"} size={"lg"}>
+          <Button className="text-sm" variant={"link"} size={"lg"}>
             Sign In
           </Button>
-          <Button className="bg-atxlancer_them_color " size={"lg"}>
+          <Button className="bg-atxlancer_them_color text-sm dark:text-white" size={"lg"}>
             Hire Me
           </Button>
           <ModeToggle />
