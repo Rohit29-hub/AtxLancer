@@ -20,6 +20,8 @@ export default {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
 			atxlancer_base_color:"#000",
+			atxlancer_white_color: '#fff',
+			atxlancer_them_color: '#9138e9',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
