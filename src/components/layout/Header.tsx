@@ -10,17 +10,18 @@ import {
 import { Button } from "../ui/button";
 import { ModeToggle } from "../ui/mode-toggle";
 import { Link } from "react-router-dom";
+import Logo from "../ui/custom-ui/Logo";
+import { AlignJustify } from "lucide-react";
 
 function Header() {
   return (
-    <div className=" flex items-center  px-14 py-2 shadow justify-center sticky top-0 bg-white dark:bg-background gap-10">
-      <div className="text-base font-bold text-[]">
-        <span className="text-atxlancer_them_color">Atx</span>Lancer
-      </div>
-      <div className="w-full flex items-center justify-between h-full ">
-        <div className=" px-[] py-3 ">
+    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow sticky top-0 bg-white dark:bg-background">
+      <Logo/>
+      <div className="hidden md:flex h-full flex-1 items-center justify-between">
+        {/* navigation links */}
+        <div className="md:ml-8 ml-0">
           <NavigationMenu>
-            <NavigationMenuList className="flex justify-between gap-7">
+            <NavigationMenuList className="flex items-center gap-x-4">
               <NavigationMenuItem>
                 <Link
                   to="/services"
@@ -96,16 +97,20 @@ function Header() {
           </NavigationMenu>
         </div>
 
-        <div className="flex justify-between gap-5 ">
-          <Button className="text-sm" variant={"link"} size={"lg"}>
-            Sign In
-          </Button>
-          <Button className="bg-atxlancer_them_color text-sm dark:text-white" size={"lg"}>
+        {/* navigation buttons  */}
+        <div className="flex gap-x-4 items-center">
+          <Button variant="link" className="text-sm">SignIn</Button>
+          <Button className="bg-atxlancer_them_color text-sm dark:text-white" size={"sm"}>
             Hire Me
           </Button>
           <ModeToggle />
         </div>
       </div>
+
+      {/* navbar icon for mobile */}
+        <div className="block md:hidden">
+          <AlignJustify size={24}/>
+        </div>
     </div>
   );
 }
