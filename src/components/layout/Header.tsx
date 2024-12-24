@@ -15,7 +15,7 @@ import { AlignJustify } from "lucide-react";
 
 function Header() {
   return (
-    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow sticky top-0 bg-white dark:bg-background">
+    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow sticky top-0 bg-white dark:bg-background z-[1054]">
       <Logo/>
       <div className="hidden md:flex h-full flex-1 items-center justify-between">
         {/* navigation links */}
