@@ -100,7 +100,7 @@ function Header() {
         {/* navigation buttons  */}
         <div className="flex gap-x-4 items-center">
           <Button variant="link" className="text-sm">SignIn</Button>
-          <Button className="bg-atxlancer_them_color text-sm dark:text-white" size={"sm"}>
+          <Button className="bg-atxlancer_theme_color text-sm dark:text-white" size={"sm"}>
             Hire Me
           </Button>
           <ModeToggle />
