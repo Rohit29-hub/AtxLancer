@@ -2,7 +2,12 @@ import HeroSection from "./components/sections/HeroSection";
 
 const HomeScreen = () => {
     return (
-        <HeroSection/>
+      <div className="flex   ">
+        <div className="">
+          <HeroSection />
+        </div>
+       
+      </div>
     );
 };
 
