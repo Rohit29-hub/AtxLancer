@@ -11,12 +11,13 @@ import { Button } from "../ui/button";
 import { ModeToggle } from "../ui/mode-toggle";
 import { Link } from "react-router-dom";
 import Logo from "../ui/custom-ui/Logo";
-import { AlignJustify } from "lucide-react";
+import { SidebarTrigger } from "../ui/sidebar";
 
 function Header() {
+
   return (
-    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow dark:shadow-gray-900 sticky top-0 bg-white dark:bg-background z-[1054]">
-      <Logo/>
+    <div className={`w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow dark:shadow-gray-900 sticky top-0 bg-white dark:bg-background z-[1054]`}>
+      <Logo />
       <div className="hidden lg:flex h-full flex-1 items-center justify-between">
         {/* navigation links */}
         <div className="md:ml-8 ml-0">
@@ -108,9 +109,9 @@ function Header() {
       </div>
 
       {/* navbar icon for mobile */}
-        <div className="block lg:hidden">
-          <AlignJustify size={24}/>
-        </div>
+      <div className="block lg:hidden z-[9999]">
+        <SidebarTrigger className="dark:bg-background bg-transparent" />
+      </div>
     </div>
   );
 }
