@@ -15,9 +15,9 @@ import { AlignJustify } from "lucide-react";
 
 function Header() {
   return (
-    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow sticky top-0 bg-white dark:bg-background z-[1054]">
+    <div className="w-fll h-min flex items-center justify-between px-3 md:px-14 py-3 shadow dark:shadow-gray-900 sticky top-0 bg-white dark:bg-background z-[1054]">
       <Logo/>
-      <div className="hidden md:flex h-full flex-1 items-center justify-between">
+      <div className="hidden lg:flex h-full flex-1 items-center justify-between">
         {/* navigation links */}
         <div className="md:ml-8 ml-0">
           <NavigationMenu>
@@ -108,7 +108,7 @@ function Header() {
       </div>
 
       {/* navbar icon for mobile */}
-        <div className="block md:hidden">
+        <div className="block lg:hidden">
           <AlignJustify size={24}/>
         </div>
     </div>

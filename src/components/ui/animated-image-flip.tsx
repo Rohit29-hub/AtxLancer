@@ -1,21 +1,21 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-type Testimonial = {
+type Images = {
   src: string;
 };
 
-export const AnimatedTestimonials = ({
-  testimonials,
+export const AnimatedImageFlip = ({
+  images,
   autoplay = false,
 }: {
-  testimonials: Testimonial[];
+  images: Images[];
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
 
   const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
+    setActive((prev) => (prev + 1) % images.length);
   };
 
   const isActive = (index: number) => index === active;
@@ -30,15 +30,14 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-10 md:py-16">
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <div className="relative h-[460px] w-[460px] mx-auto">
-            {/* Increased height to h-[500px] and added width w-[500px] */}
+          <div className="relative h-[290px] w-[290px] sm:h-[360px] sm:w-[360px] md:h-[460px] md:w-[460px] mx-auto">
             <AnimatePresence>
-              {testimonials.map((testimonial, index) => (
+              {images.map((image, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={image.src}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -52,7 +51,7 @@ export const AnimatedTestimonials = ({
                     rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
                       ? 999
-                      : testimonials.length + 2 - index,
+                      : images.length + 2 - index,
                     y: isActive(index) ? [0, -80, 0] : 0,
                   }}
                   exit={{
@@ -68,7 +67,7 @@ export const AnimatedTestimonials = ({
                   className="absolute inset-0 origin-bottom"
                 >
                   <img
-                    src={testimonial.src}
+                    src={image.src}
                     alt="Testimonial"
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"

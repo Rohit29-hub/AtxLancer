@@ -1,6 +1,7 @@
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { AnimatedImageFlip } from "@/components/ui/animated-image-flip";
 import { Button } from "@/components/ui/button";
 import { FlipWords } from "@/components/ui/flip-words";
+import images from '@/data/hero-section-images.json';
 
 const HeroSection = () => {
   const words = [
@@ -11,35 +12,12 @@ const HeroSection = () => {
     "Growth",
   ];
 
-  const testimonials = [
-    {
-     
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
- 
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-     
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-   
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-    
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
-
   return (
-    <div className=" w-full h-screen flex items-center px-10 justify-between pb-11">
+    <div className="w-full overflow-hidden md:overflow-auto h-min mt-6 lg:mt-0 flex lg:flex-row flex-col items-center lg:gap-x-8 px-3 sm:px-4 md:px-8  lg:px-10 justify-between">
       {/* left hero section  */}
-      <div className="space-y-2 flex-1 ">
+      <div className="flex-1 flex-col">
         <div>
-          <h2 className="text-7xl font-black font-atxlancer_heading ">
+          <h2 className="text-6xl lg:text-8xl font-black font-atxlancer_heading ">
             Welcome to
             <span className="block text-atxlancer_theme_color mt-2">
               {" "}
@@ -47,16 +25,16 @@ const HeroSection = () => {
             </span>
           </h2>
         </div>
-        <div className="flex items-center gap-x-3">
-          <h3 className="text-5xl font-black font-atxlancer_heading">
+        <div className="flex items-center gap-x-3 pt-2">
+          <h3 className="text-3xl lg:text-5xl font-black font-atxlancer_heading">
             Where We
           </h3>
-          <div className="border-2 text-4xl font-black font-atxlancer_heading rounded-3xl w-min p-1 border-atxlancer_theme_color ">
+          <div className="relative overflow-hidden border-2 text-2xl lg:text-4xl font-black font-atxlancer_heading rounded-3xl w-min p-1 border-atxlancer_theme_color ">
             <FlipWords words={words} />
           </div>
         </div>
-        <div className="pt-2">
-          <p className="">
+        <div className="pt-2 md:pt-4">
+          <p className="text-base">
             Welcome to <span>ATXLancer</span> Freelancing Hub! I specialize in
             delivering high-quality web development services tailored to your
             unique needs. With a focus on creativity, professionalism, and
@@ -64,7 +42,7 @@ const HeroSection = () => {
             to life. Let's collaborate to make your vision a reality!
           </p>
         </div>
-        <div className="flex items-center gap-x-4 pt-2.5">
+        <div className="flex items-center gap-x-4 pt-4">
           <Button className="bg-atxlancer_theme_color text-white " size={"lg"}>
             Start Project
           </Button>
@@ -79,9 +57,10 @@ const HeroSection = () => {
       </div>
 
       {/* right hero section */}
-      <div className="flex-1 ">
-        <AnimatedTestimonials autoplay={true} testimonials={testimonials}/> 
+      <div className="flex-1">
+        <AnimatedImageFlip autoplay={true} images={images}/> 
       </div>
+
     </div>
   );
 };
