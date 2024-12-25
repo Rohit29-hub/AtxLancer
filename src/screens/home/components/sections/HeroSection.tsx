@@ -5,7 +5,6 @@ import images from '@/data/hero-section-images.json';
 
 const HeroSection = () => {
   const words = [
-    "Excellence",
     "Innovation",
     "Creativity",
     "Reliability",
