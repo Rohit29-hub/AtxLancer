@@ -6,13 +6,15 @@ import SignupScreen from './screens/signup/SignupScreen'
 
 function App() {
   return (
+    <>
+    <Header/>
     <Routes>
       <Route>
-        <Header/>
         <Route path='/' element={<HomeScreen/>}/>
         <Route path='/onboarding' element={<SignupScreen/>}/>
       </Route>
 </Routes>
+    </>
   )
 }
 
