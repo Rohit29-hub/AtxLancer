@@ -145,3 +145,12 @@
   display: none; /* Chrome, Safari, and Opera */
 }
 /* scrollbar hide code end */
+
+
+.left-signup-authContainer{
+  background-image: url("https://i.pinimg.com/236x/75/fc/c8/75fcc8b4bf1f4f9fbba39345925faa6e.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
+
+}
