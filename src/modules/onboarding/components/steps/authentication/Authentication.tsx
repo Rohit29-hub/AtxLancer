@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import GoogleButton from "../../ui/GoogleButton";
 import AuthDisclaimer from "../../ui/AuthDisclaimer";
 import GithubButton from "../../ui/GithubButton";
-// import apiRequest from "@/services/api";
+import apiRequest from "@/services/api";
 import DividerLine from "../../ui/DividerLine";
 import FormTopDescription from "../../ui/FormTopDescription";
 import FormImageSection from "../../ui/FormImageSection";
@@ -28,10 +28,10 @@ function Authentication() {
   });
 
   const onSubmit = async (userData: SignupFormData) => {
-    // const data = await apiRequest('POST', '/api/v1/user/auth', userData);
-    // if (data.success) {
+    const data = await apiRequest('POST', '/api/v1/user/auth', userData);
+    if (data.success) {
       navigate('choose-role')
-    // }
+    }
   };
 
   return (
