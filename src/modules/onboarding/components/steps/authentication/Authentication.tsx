@@ -42,7 +42,7 @@ function Authentication() {
         heading="Join Our Family!"
         message="Create an account and unlock a world of opportunities. Let’s build your future together."
         quote="The best journeys begin with a single step."
-        imageUrl="/public/images/onboarding-img.png"
+        imageUrl="/images/onboarding-img.png"
       />
 
       {/* Right Section: Signup Form */}

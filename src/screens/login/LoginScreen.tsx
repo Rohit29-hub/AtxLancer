@@ -42,7 +42,7 @@ function LoginScreen() {
         heading="Welcome Back!"
         message="Log in to continue exploring your personalized dashboard and stay connected."
         quote="Your next adventure awaits."
-        imageUrl="/public/images/onboarding-img.png"
+        imageUrl="/images/onboarding-img.png"
       />
 
       {/* right container */}
