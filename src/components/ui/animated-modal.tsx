@@ -17,7 +17,7 @@ interface ModalContextType {
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
-export const ModalProvider = ({ children, default_state }: { children: ReactNode, default_state: 'open' | 'close' }) => {
+export const ModalProvider = ({ children, default_state }: { children: ReactNode, default_state?: 'open' | 'close' }) => {
     const [open, setOpen] = useState(default_state === 'open' ? true : false);
 
     return (
