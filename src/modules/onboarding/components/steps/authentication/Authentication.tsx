@@ -30,7 +30,7 @@ function Authentication() {
   const onSubmit = async (userData: SignupFormData) => {
     const data = await apiRequest('POST', '/api/v1/user/auth', userData);
     if (data.success) {
-      navigate('/choose-role')
+      navigate('choose-role')
     }
   };
 
