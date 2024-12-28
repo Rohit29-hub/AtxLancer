@@ -1,7 +1,9 @@
-import Onboarding from "@/modules/onboarding/Onboarding"
+import { Outlet } from "react-router-dom"
 
 function SignupScreen() {
-  return <Onboarding/>
+  return (
+    <Outlet/>
+  )
 }
 
 export default SignupScreen

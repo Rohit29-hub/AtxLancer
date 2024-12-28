@@ -100,7 +100,9 @@ function Header() {
 
         {/* navigation buttons  */}
         <div className="flex gap-x-4 items-center">
-          <Button variant="link" className="text-sm">SignIn</Button>
+          <Button variant="link"  className="text-sm">
+            <Link to={'/onboarding/signup'}>Signup</Link>
+          </Button>
           <Button className="bg-atxlancer_theme_color text-sm dark:text-white" size={"sm"}>
             Hire Me
           </Button>
