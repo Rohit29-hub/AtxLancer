@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout'
 import OnboardingLayout from './layouts/OnboardingLayout'
 import Authentication from './modules/onboarding/components/steps/authentication/Authentication'
 import LoginScreen from './screens/login/LoginScreen'
+import ChooseRole from './modules/onboarding/components/steps/choose-role/ChooseRole'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           {/* signup routes */}
           <Route path='signup' element={<SignupScreen />}>
             <Route index element={<Authentication />} />
-            <Route path='choose-role' element={<h1>choose role</h1>} />
+            <Route path='choose-role' element={<ChooseRole/>} />
             <Route path='client'>
               <Route path='profile' element={<h1>profile</h1>} />
             </Route>

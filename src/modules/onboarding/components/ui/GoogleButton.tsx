@@ -23,7 +23,7 @@ const GoogleButton = () => {
     return (
         <Button
             onClick={handleGoogleAuthentication}
-            className="flex-1 flex items-center justify-center gap-2 w-full"
+            className="flex-1 flex items-center justify-center gap-2 w-full text-black dark:text-atxlancer_white_color bg-white dark:bg-atxlancer_base_color"
         >
             <FcGoogle size={20} />
             Continue with Google

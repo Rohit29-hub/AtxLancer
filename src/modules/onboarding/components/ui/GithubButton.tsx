@@ -27,9 +27,9 @@ const GithubButton = () => {
     };
 
     return (
-        <Button className="flex-1 flex items-center justify-center gap-2 w-full" onClick={authenticateByGithub}>
+        <Button className="flex-1 flex items-center justify-center gap-2 w-full bg-white text-black dark:text-white dark:bg-atxlancer_base_color" onClick={authenticateByGithub}>
             <FaGithub size={20}/>
-            Continue with Google
+            Continue with Github
         </Button>
     )
 }
