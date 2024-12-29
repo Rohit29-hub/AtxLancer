@@ -100,16 +100,15 @@
 /* font set */
 @font-face {
   font-family: "Circular";
-  src:url("./fonts/CircularXXWeb-Regular.woff2")  format("woff2");
+  src: url("./fonts/CircularXXWeb-Regular.woff2") format("woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Circular";
-  src:url("./fonts/CircularXXWeb-Book.woff2") format("woff2");
+  src: url("./fonts/CircularXXWeb-Book.woff2") format("woff2");
   font-weight: 600;
 }
-
 
 @font-face {
   font-family: "SharpGrote";
@@ -130,7 +129,7 @@
 }
 
 @font-face {
-  font-family:"Neoris";
+  font-family: "Neoris";
   src: url("./fonts/TT Neoris Trial ExtraBold.ttf") format("ttf");
   font-weight: 800; /* Bold */
 }

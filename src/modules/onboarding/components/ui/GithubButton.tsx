@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa6";
 
-const GithubButton = () => {
-    
+const GithubButton = ({ handleGithubResponse }: { handleGithubResponse: (data: any) => void }) => {
+
     // Authenticate user by github
     const authenticateByGithub = () => {
         const popup = window.open(
@@ -13,10 +13,8 @@ const GithubButton = () => {
 
         const handleMessage = (event: MessageEvent) => {
             if (event.origin !== import.meta.env.VITE_BACKEND_URL) return;
-            
-            if(event.data.success){
-                // !TODO do something here. like push in redux.
-                console.log(event.data);
+            if (event.data.data.success) {
+                handleGithubResponse(event.data.data);
             }
             popup?.close();
             window.removeEventListener('message', handleMessage);
@@ -27,8 +25,8 @@ const GithubButton = () => {
     };
 
     return (
-        <Button className="flex-1 flex items-center justify-center gap-2 w-full bg-white text-black dark:text-white dark:bg-atxlancer_base_color" onClick={authenticateByGithub}>
-            <FaGithub size={20}/>
+        <Button size={'lg'} className="flex-1 flex items-center justify-center gap-2 w-full text-black  bg-white hover:bg-white dark:text-white dark:bg-background border border-input" onClick={authenticateByGithub}>
+            <FaGithub size={20} />
             Continue with Github
         </Button>
     )
