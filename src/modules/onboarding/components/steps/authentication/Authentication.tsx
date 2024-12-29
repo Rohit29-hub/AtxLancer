@@ -27,6 +27,7 @@ function Authentication() {
     mode: "onSubmit",
   });
 
+  // on-email signup 
   const onSubmit = async (userData: SignupFormData) => {
     const data = await apiRequest('POST', '/api/v1/user/auth', userData);
     if (data.success) {
@@ -34,9 +35,22 @@ function Authentication() {
     }
   };
 
+  // google signup
+  const handleGoogleResponse = (data: any) => {
+    alert(data.message);
+    navigate('choose-role');
+  }
+
+  // github singup
+  const handleGithubResponse = (data: any) => {
+    alert(data.message);
+    navigate('choose-role');
+  }
+
+
   return (
-    <div className="w-full flex gap-x-2 h-full dark:bg-background">
-      
+    <div className="overflow-hidden w-full flex gap-x-2 h-full dark:bg-background">
+
       {/* left container */}
       <FormImageSection
         heading="Join Our Family!"
@@ -46,62 +60,64 @@ function Authentication() {
       />
 
       {/* Right Section: Signup Form */}
-      <div className="flex-1 bg-white p-2 flex flex-col justify-center dark:bg-background">
+      <div className="flex flex-col lg:flex-row flex-1">
+        <div className="flex-1 bg-white p-2 flex flex-col justify-center dark:bg-background">
 
-        {/* form description */}
-        <FormTopDescription
-          formTitle="Create new Account"
-          formLink="login"
-          formLinkTitle="SignIn"
-          formMessage="Already have an account ?"
-        />
+          {/* form description */}
+          <FormTopDescription
+            formTitle="Create new Account"
+            formLink="login"
+            formLinkTitle="SignIn"
+            formMessage="Already have an account ?"
+          />
 
-        {/* inputs fields */}
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              name="email"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input type="email" {...field} placeholder="Email" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="password"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input type="password" {...field} placeholder="Password" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          {/* inputs fields */}
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                name="email"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input type="email" {...field} placeholder="Email" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="password"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input type="password" {...field} placeholder="Password" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <Button type="submit" className="w-full bg-atxlancer_theme_color text-white hover:bg-atxlancer_theme_color ">
-              Sign Up
-            </Button>
-          </form>
-        </Form>
+              <Button type="submit" className="w-full bg-atxlancer_theme_color text-white hover:bg-atxlancer_theme_color ">
+                Sign Up
+              </Button>
+            </form>
+          </Form>
 
-        {/* Divider line */}
-        <DividerLine />
+          {/* Divider line */}
+          <DividerLine />
 
-        {/* Google button and github button*/}
-        <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-2">
-          <GoogleButton />
-          <GithubButton />
+          {/* Google button and github button*/}
+          <div className="space-y-3">
+            <GoogleButton handleGoogleResponse={handleGoogleResponse} />
+            <GithubButton handleGithubResponse={handleGithubResponse} />
+          </div>
+
+          {/* auth disclaimer */}
+          <AuthDisclaimer />
+
         </div>
-
-        {/* auth disclaimer */}
-        <AuthDisclaimer />
-
       </div>
     </div>
   );

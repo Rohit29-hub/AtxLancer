@@ -34,6 +34,17 @@ function LoginScreen() {
     }
   };
 
+    // google login
+    const handleGoogleResponse = (data: any) => {
+      console.log('ye data aaya hai', data);
+    }
+  
+    // github login
+    const handleGithubResponse = (data: any) => {
+      console.log('ye data aaya hai', data);
+    }
+
+
   return (
     <div className="overflow-hidden w-full flex gap-x-2 h-full dark:bg-background">
       
@@ -94,9 +105,9 @@ function LoginScreen() {
           <DividerLine />
 
           {/* Google button and github button*/}
-          <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-2">
-            <GoogleButton />
-            <GithubButton />
+          <div className="space-y-3">
+            <GoogleButton handleGoogleResponse={handleGoogleResponse}/>
+            <GithubButton handleGithubResponse={handleGithubResponse}/>
           </div>
           
           {/* auth disclaimer */}

@@ -45,7 +45,7 @@ export function AppSidebar() {
                       <SidebarMenuItem>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton
-                            className="dark:bg-background text-base bg-transparent flex justify-between"
+                            className="text-base bg-transparent flex justify-between"
                             onClick={() => toggleSection(item.title)}
                           >
                             <span>{item.title}</span>
@@ -73,7 +73,7 @@ export function AppSidebar() {
                   ) : (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton
-                        className="dark:bg-background bg-transparent text-base"
+                        className="bg-transparent text-base"
                         asChild
                       >
                         <Link to={item.url!} className="flex items-center ">
