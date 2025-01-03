@@ -1,9 +1,8 @@
 import { useState } from "react";
 import ChooseRoleCard from "../../ui/ChooseRoleCard";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import OnbordHader from "../../ui/OnbordHader";
+import NextStepButton from "../../ui/NextStepButton";
 
 function ChooseRole() {
   const navigate = useNavigate();
@@ -48,11 +47,7 @@ function ChooseRole() {
           />
         </div>
       </div>
-      <div className="w-full flex justify-end">
-        <Button variant={"custom"} onClick={handleRoleSubmit} size={"lg"}>
-          Next <ArrowRight size={20} />
-        </Button>
-      </div>
+      <NextStepButton handleSubmit={handleRoleSubmit} />
     </div>
   );
 }

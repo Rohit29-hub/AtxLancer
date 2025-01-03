@@ -7,7 +7,8 @@ import OnboardingLayout from './layouts/OnboardingLayout'
 import Authentication from './modules/onboarding/components/steps/authentication/Authentication'
 import LoginScreen from './screens/login/LoginScreen'
 import ChooseRole from './modules/onboarding/components/steps/choose-role/ChooseRole'
-import Profile from './modules/onboarding/freelancer/steps/profile/Profile'
+import Profile from './modules/onboarding/components/steps/profile/Profile'
+import FreelancerPreference from './modules/onboarding/freelancer/steps/freelancer-preference/FreelancerPreference'
 
 function App() {
   return (
@@ -24,10 +25,11 @@ function App() {
             <Route index element={<Authentication />} />
             <Route path='choose-role' element={<ChooseRole/>} />
             <Route path='client'>
-              <Route path='profile' element={<h1>profile</h1>} />
+              <Route path='profile' element={<Profile/>} />
             </Route>
             <Route path='freelancer'>
               <Route path='profile' element={<Profile/>} />
+              <Route path='preference' element={<FreelancerPreference/>} />
             </Route>
           </Route>
           {/* login route */}
