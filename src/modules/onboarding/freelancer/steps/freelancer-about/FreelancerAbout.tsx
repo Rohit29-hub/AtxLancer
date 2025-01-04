@@ -165,7 +165,7 @@ function FreelancerAbout() {
             </Select>
           </div>
         </div>
-        <NextStepButton />
+        <NextStepButton handleSubmit={()=>{}} />
       </form>
     </div>
   );
