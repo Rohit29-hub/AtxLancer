@@ -9,6 +9,7 @@ import LoginScreen from './screens/login/LoginScreen'
 import ChooseRole from './modules/onboarding/components/steps/choose-role/ChooseRole'
 import Profile from './modules/onboarding/components/steps/profile/Profile'
 import FreelancerPreference from './modules/onboarding/freelancer/steps/freelancer-preference/FreelancerPreference'
+import FreelancerAbout from './modules/onboarding/freelancer/steps/freelancer-about/FreelancerAbout'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='freelancer'>
               <Route path='profile' element={<Profile/>} />
               <Route path='preference' element={<FreelancerPreference/>} />
+              <Route path='Freelancerabout' element={<FreelancerAbout/>} />
             </Route>
           </Route>
           {/* login route */}

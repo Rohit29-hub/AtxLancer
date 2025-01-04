@@ -6,6 +6,7 @@ import NextStepButton from "../../ui/NextStepButton";
 import LabelInput from "../../ui/LabelInput";
 import { Input } from "@/components/ui/input";
 
+
 type ProfileFormData = {
   firstName: string;
   lastName: string;
