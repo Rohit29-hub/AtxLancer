@@ -1,102 +1,152 @@
-import { Input } from "@/components/ui/input";
+import { useForm, Controller } from "react-hook-form";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import OnbordHader from "@/modules/onboarding/components/ui/OnbordHader";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import NextStepButton from "../../ui/NextStepButton";
+import LabelInput from "../../ui/LabelInput";
+import { Input } from "@/components/ui/input";
 
+type ProfileFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  profileType: string;
+  profileImage: File | null;
+};
 
 function Profile() {
+  const { handleSubmit, control, setValue, watch } = useForm<ProfileFormData>({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "bilalfaiz@gmail.com",
+      profileType: "",
+      profileImage: null,
+    },
+  });
+
+  const profileImage = watch("profileImage");
+
+  const onSubmit = (data: ProfileFormData) => {
+    console.log("Form Data:", data);
+  };
+
+  const handleFileChange = (file: File | null) => {
+    setValue("profileImage", file);
+  };
+
   return (
-    <div className="p-4 sm:p-6 md:p-8">
+    <div className="realtive">
       <OnbordHader
         title="Your Profile"
         description="Provide your details to help us customize your experience."
       />
-
-      <div>
-        <form className="mt-8 space-y-6">
-          {/* Name Fields */}
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="w-full flex flex-col">
-              <Label htmlFor="firstName" className="text-sm font-medium mb-2">
-                Enter your first name :
-              </Label>
-              <Input
-                id="firstName"
+      <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        {/* Name Fields */}
+        <div className="flex flex-col md:flex-row gap-4">
+          <Controller
+            name="firstName"
+            control={control}
+            render={({ field }) => (
+              <LabelInput
+                id="firstname"
+                label="Enter your firstName"
                 placeholder="First Name"
-                className="w-full"
+                {...field}
+              />
+            )}
+          />
+          <Controller
+            name="lastName"
+            control={control}
+            render={({ field }) => (
+              <LabelInput
+                id="lastname"
+                label="Enter your lastName"
+                placeholder="Last Name"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        {/* Avatar and Email Fields */}
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="w-full flex flex-col">
+            <label className="text-sm font-medium mb-2">
+              Select profile picture
+            </label>
+            <div className="flex items-center gap-x-4">
+              <Avatar>
+                {profileImage ? (
+                  <AvatarImage src={URL.createObjectURL(profileImage)} />
+                ) : (
+                  <AvatarFallback>DP</AvatarFallback>
+                )}
+              </Avatar>
+              <Controller
+                name="profileImage"
+                control={control}
+                render={() => (
+                  <Input
+                    type="file"
+                    accept="image/jpeg,image/png"
+                    className="w-full"
+                    onChange={(e) =>
+                      handleFileChange(e.target.files?.[0] || null)
+                    }
+                  />
+                )}
               />
             </div>
-            <div className="w-full flex flex-col">
-              <Label htmlFor="lastName" className="text-sm font-medium  mb-2">
-                Enter your last name :
-              </Label>
-              <Input id="lastName" placeholder="Last Name" className="w-full" />
-            </div>
           </div>
-
-          {/* Avatar and Email Fields */}
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-full flex flex-col">
-              <Label
-                htmlFor="freelancerImage"
-                className="text-sm font-medium  mb-2"
-              >
-                Select profile picture :
-              </Label>
-              <div className="flex items-center gap-x-4">
-                <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>DP</AvatarFallback>
-                </Avatar>
-                <Input
-                  className="w-full"
-                  type="file"
-                  id="freelancerImage"
-                  accept="image/jpeg"
-                />
-              </div>
-            </div>
-            <div className="w-full flex flex-col">
-              <Label htmlFor="email" className="text-sm font-medium  mb-2">
-                Your email :
-              </Label>
-              <Input
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <LabelInput
                 id="email"
+                label="Your email"
                 placeholder="bilalfaiz@gmail.com"
                 disabled
-                className="w-full"
+                {...field}
               />
-            </div>
-          </div>
+            )}
+          />
+        </div>
 
-          {/* Radio Group */}
-          <div className="flex flex-col">
-            <Label className="text-sm font-medium  mb-2">
-              Select profile type :
-            </Label>
-            <RadioGroup
-              defaultValue="option-one"
-              className="flex flex-col sm:flex-row mt-3 gap-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-one" id="option-one" />
-                <Label htmlFor="option-one" className="text-sm font-medium ">
-                  As a Indivisudal
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-two" id="option-two" />
-                <Label htmlFor="option-two" className="text-sm font-medium ">
-                  As a Company
-                </Label>
-              </div>
-            </RadioGroup>
-          </div>
-        </form>
-        <NextStepButton handleSubmit={() => {}}/>
-      </div>
+        {/* Radio Group */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium mb-2">Select profile type</label>
+          <Controller
+            name="profileType"
+            control={control}
+            render={({ field }) => (
+              <RadioGroup
+                {...field}
+                onValueChange={field.onChange}
+                value={field.value}
+                className="flex flex-col sm:flex-row mt-3 gap-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Individual" id="individual" />
+                  <label htmlFor="individual" className="text-sm font-medium">
+                    As an Individual
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Company" id="company" />
+                  <label htmlFor="company" className="text-sm font-medium">
+                    As a Company
+                  </label>
+                </div>
+              </RadioGroup>
+            )}
+          />
+        </div>
+
+        <NextStepButton handleSubmit={onSubmit} />
+      </form>
     </div>
   );
 }
