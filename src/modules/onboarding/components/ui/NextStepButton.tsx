@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 interface NextStepButtonProps {
-  handleSubmit: () => void;
+  handleSubmit: (data: any) => void;
 }
 
 function NextStepButton({handleSubmit}:NextStepButtonProps) {
