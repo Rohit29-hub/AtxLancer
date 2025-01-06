@@ -27,7 +27,7 @@ function ChooseRole() {
         needs."
       />
       <div
-        className="md:h-4/5 overflow-hidden grid grid-cols-2 md:gap-x-6 gap-x-2"
+        className="md:h-4/5 p-2 overflow-hidden grid grid-cols-2 md:gap-x-6 gap-x-2"
         onClick={handleChooseRole}
       >
         <div data-role="freelancer" className="col-span-1">
