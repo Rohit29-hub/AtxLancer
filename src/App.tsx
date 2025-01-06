@@ -14,6 +14,7 @@ const Profile = React.lazy(() => import('./modules/onboarding/components/steps/p
 const FreelancerPreference = React.lazy(() => import('./modules/onboarding/freelancer/steps/freelancer-preference/FreelancerPreference'));
 const FreelancerSkillSelection = React.lazy(() => import( './modules/onboarding/freelancer/steps/freelancer-skills/FreelancerSkillSelection'));
 const NotFound = React.lazy(() => import('./screens/not-found/NotFound'));
+const FreelancerAbout = React.lazy(() => import('./modules/onboarding/freelancer/steps/freelancer-about/FreelancerAbout'));
 
 function App() {
   return (
@@ -25,22 +26,28 @@ function App() {
         </Route>
 
         {/* Onboarding routings */}
-        <Route path="/onboarding" element={<OnboardingLayout />}>
+                <Route path="/onboarding" element={<OnboardingLayout />}>
           {/* Signup routes */}
           <Route path="signup" element={<SignupScreen />}>
             <Route index element={<Authentication />} />
             <Route path="choose-role" element={<ChooseRole />} />
             <Route path="client">
-              <Route  path="profile" element={<Profile />} />
+              <Route path="profile" element={<Profile />} />
             </Route>
             <Route path="freelancer">
               <Route path="profile" element={<Profile />} />
               <Route path="preference" element={<FreelancerPreference />} />
               <Route path="skills" element={<FreelancerSkillSelection />} />
+
+              <Route path='freelancer'>
+                <Route path='profile' element={<Profile />} />
+                <Route path='preference' element={<FreelancerPreference />} />
+                <Route path='Freelancerabout' element={<FreelancerAbout />} />
+              </Route>
             </Route>
+            {/* Login route */}
+            <Route path="login" element={<LoginScreen />} />
           </Route>
-          {/* Login route */}
-          <Route path="login" element={<LoginScreen />} />
         </Route>
       </Routes>
     </Suspense>
