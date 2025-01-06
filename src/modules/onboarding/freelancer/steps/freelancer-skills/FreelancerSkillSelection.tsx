@@ -21,7 +21,7 @@ const FreelancerSkillSelection = () => {
 
     // handle skill change throw typing
     const handleSkillChange = (value: string) => {
-        value.length ? setIsOptionVisible(true) : setIsOptionVisible(false);
+        value.length != 0 ? setIsOptionVisible(true) : setIsOptionVisible(false);
         setSkillName(value);
     }
 
