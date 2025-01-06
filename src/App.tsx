@@ -1,45 +1,57 @@
-import './App.css'
-import HomeScreen from '@/screens/home/HomeScreen'
-import { Route, Routes } from 'react-router-dom'
-import SignupScreen from './screens/signup/SignupScreen'
-import MainLayout from './layouts/MainLayout'
-import OnboardingLayout from './layouts/OnboardingLayout'
-import Authentication from './modules/onboarding/components/steps/authentication/Authentication'
-import LoginScreen from './screens/login/LoginScreen'
-import ChooseRole from './modules/onboarding/components/steps/choose-role/ChooseRole'
-import Profile from './modules/onboarding/components/steps/profile/Profile'
-import FreelancerPreference from './modules/onboarding/freelancer/steps/freelancer-preference/FreelancerPreference'
-import FreelancerAbout from './modules/onboarding/freelancer/steps/freelancer-about/FreelancerAbout'
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import Loader from './components/layout/Loader';
+
+const HomeScreen = React.lazy(() => import('@/screens/home/HomeScreen'));
+const SignupScreen = React.lazy(() => import('./screens/signup/SignupScreen'));
+const MainLayout = React.lazy(() => import('./layouts/MainLayout'));
+const OnboardingLayout = React.lazy(() => import('./layouts/OnboardingLayout'));
+const Authentication = React.lazy(() => import('./modules/onboarding/components/steps/authentication/Authentication'));
+const LoginScreen = React.lazy(() => import('./screens/login/LoginScreen'));
+const ChooseRole = React.lazy(() => import('./modules/onboarding/components/steps/choose-role/ChooseRole'));
+const Profile = React.lazy(() => import('./modules/onboarding/components/steps/profile/Profile'));
+const FreelancerPreference = React.lazy(() => import('./modules/onboarding/freelancer/steps/freelancer-preference/FreelancerPreference'));
+const FreelancerSkillSelection = React.lazy(() => import( './modules/onboarding/freelancer/steps/freelancer-skills/FreelancerSkillSelection'));
+const NotFound = React.lazy(() => import('./screens/not-found/NotFound'));
+const FreelancerAbout = React.lazy(() => import('./modules/onboarding/freelancer/steps/freelancer-about/FreelancerAbout'));
 
 function App() {
   return (
-    <>
+    <Suspense fallback={<Loader/>}>
       <Routes>
-        <Route path='/' element={<MainLayout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<HomeScreen />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* onboarding routings */}
-        <Route path='/onboarding' element={<OnboardingLayout />}>
-          {/* signup routes */}
-          <Route path='signup' element={<SignupScreen />}>
+        {/* Onboarding routings */}
+                <Route path="/onboarding" element={<OnboardingLayout />}>
+          {/* Signup routes */}
+          <Route path="signup" element={<SignupScreen />}>
             <Route index element={<Authentication />} />
-            <Route path='choose-role' element={<ChooseRole/>} />
-            <Route path='client'>
-              <Route path='profile' element={<Profile/>} />
+            <Route path="choose-role" element={<ChooseRole />} />
+            <Route path="client">
+              <Route path="profile" element={<Profile />} />
             </Route>
-            <Route path='freelancer'>
-              <Route path='profile' element={<Profile/>} />
-              <Route path='preference' element={<FreelancerPreference/>} />
-              <Route path='Freelancerabout' element={<FreelancerAbout/>} />
+            <Route path="freelancer">
+              <Route path="profile" element={<Profile />} />
+              <Route path="preference" element={<FreelancerPreference />} />
+              <Route path="skills" element={<FreelancerSkillSelection />} />
+
+              <Route path='freelancer'>
+                <Route path='profile' element={<Profile />} />
+                <Route path='preference' element={<FreelancerPreference />} />
+                <Route path='Freelancerabout' element={<FreelancerAbout />} />
+              </Route>
             </Route>
+            {/* Login route */}
+            <Route path="login" element={<LoginScreen />} />
           </Route>
-          {/* login route */}
-          <Route path='login' element={<LoginScreen/>} />
         </Route>
       </Routes>
-    </>
-  )
+    </Suspense>
+  );
 }
 
-export default App
+export default App;

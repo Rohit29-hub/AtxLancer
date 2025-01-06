@@ -12,7 +12,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden md:overflow-auto h-min mt-6 lg:mt-0 flex lg:flex-row flex-col items-center lg:gap-x-8 px-3 sm:px-4 md:px-8  lg:px-10 justify-between">
+    <div className="w-full overflow-hidden md:overflow-auto h-min mt-6 lg:mt-0 flex md:flex-row flex-col items-center lg:gap-x-8 px-3 sm:px-4 md:px-8  lg:px-10 justify-between">
       {/* left hero section  */}
       <div className="flex-1 flex-col">
         <div>
