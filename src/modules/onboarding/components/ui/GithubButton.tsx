@@ -13,6 +13,7 @@ const GithubButton = ({ handleGithubResponse }: { handleGithubResponse: (data: a
 
         const handleMessage = (event: MessageEvent) => {
             if (event.origin !== import.meta.env.VITE_BACKEND_URL) return;
+            console.log(event);
             if (event.data.success) {
                 handleGithubResponse(event.data.data);
             }
