@@ -13,7 +13,7 @@ const GithubButton = ({ handleGithubResponse }: { handleGithubResponse: (data: a
 
         const handleMessage = (event: MessageEvent) => {
             if (event.origin !== import.meta.env.VITE_BACKEND_URL) return;
-            if (event.data.data.success) {
+            if (event.data.success) {
                 handleGithubResponse(event.data.data);
             }
             popup?.close();
