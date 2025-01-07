@@ -29,7 +29,7 @@ function Authentication() {
 
   // on-email signup 
   const onSubmit = async (userData: SignupFormData) => {
-    const data = await apiRequest('POST', '/api/v1/user/auth', userData);
+    const data = await apiRequest('POST', '/api/user/v1/user/auth', userData);
     if (data.success) {
       navigate('choose-role')
     }

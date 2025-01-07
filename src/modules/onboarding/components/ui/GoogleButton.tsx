@@ -8,7 +8,7 @@ const GoogleButton = ({ handleGoogleResponse }: { handleGoogleResponse: (data: a
     // authenticate with google
     const authenticateByGoogle = async (result: any) => {
         if (result['code']) {
-            const data = await apiRequest('GET', `/api/v1/auth/google?code=${result.code}`);
+            const data = await apiRequest('GET', `/api/user/v1/auth/google?code=${result.code}`);
             // !TODO do something here to track their data;
             handleGoogleResponse(data);
         }
