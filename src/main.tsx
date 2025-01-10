@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { SidebarInset, SidebarProvider } from "./components/ui/sidebar.tsx";
 import { AppSidebar } from "./components/layout/App-sidebar.tsx";
 import { ModalProvider } from "./components/ui/animated-modal.tsx";
+import { Toaster } from "./components/ui/toaster.tsx";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +19,7 @@ createRoot(document.getElementById("root")!).render(
               <AppSidebar/>
               <SidebarInset>
                 <App />
+                <Toaster/>
               </SidebarInset>
             </SidebarProvider>
           </ModalProvider>
